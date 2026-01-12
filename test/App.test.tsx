@@ -38,7 +38,7 @@ describe('App Component', () => {
     const viteLink = screen.getByRole('link', { name: /vite logo/i });
     const reactLink = screen.getByRole('link', { name: /react logo/i });
 
-    expect(viteLink).toHaveAttribute('href', 'https://vite.dev');
+    expect(viteLink).toHaveAttribute('href', 'https://vite.de');
     expect(reactLink).toHaveAttribute('href', 'https://react.dev');
   });
 });
