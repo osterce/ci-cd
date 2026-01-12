@@ -43,4 +43,21 @@ pipeline {
             }
         }
     }
+    post{
+        failure{
+            emailext(
+                subject: "Project Name: ${JOB_NAME} - Pipeline Status: ${BUILD_NUMBER}",
+                body: ''' <html>
+                            <body>
+                                <p>Build Status: ${BUILD_STATUS}</p>
+                                <p>Build Number: ${BUILD_NUMBER}</p>
+                                <p>Check the <a href="${BUILD_URL}">console output</a> to view the results.</p>
+                            </body>
+                        </html>''',
+                to: 'osterce@gmail.com',
+                from: 'ozterce84@gmail.com',
+                mimeType: 'text/html'
+            )
+        }
+    }
 }
